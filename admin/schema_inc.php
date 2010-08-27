@@ -1,5 +1,25 @@
 <?php
 
+global $gBitSystem;
+
+$gBitSystem->registerPackageInfo( LANGUAGES_PKG_NAME, array(
+	'description' => "This package allows you to translate your site into a different language.",
+	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
+) );
+
+// Package requirements
+$gBitSystem->registerRequirements( LANGUAGES_PKG_NAME, array(
+	'liberty'   => array( 'min' => '2.1.4' ),
+	'users'     => array( 'min' => '2.1.0' ),
+	'kernel'    => array( 'min' => '2.0.0' ),
+	'themes'    => array( 'min' => '2.0.0' ),
+));
+
+
+// Install process
+global $gBitInstaller;
+if( is_object( $gBitInstaller ) ){
+
 $tables = array(
 
 'i18n_languages' => "
@@ -37,8 +57,6 @@ $tables = array(
 
 );
 
-global $gBitInstaller;
-
 foreach( array_keys( $tables ) AS $tableName ) {
 	$gBitInstaller->registerSchemaTable( LANGUAGES_PKG_NAME, $tableName, $tables[$tableName], TRUE );
 }
@@ -59,11 +77,6 @@ $gBitInstaller->registerSchemaIndexes( LANGUAGES_PKG_NAME, $indices );
 //	'i18n_content_trans_id_seq' => array( 'start' => 1 ),
 //);
 //$gBitInstaller->registerSchemaSequences( LIBERTY_PKG_NAME, $sequences );
-
-$gBitInstaller->registerPackageInfo( LANGUAGES_PKG_NAME, array(
-	'description' => "This package allows you to translate your site into a different language.",
-	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
-) );
 
 // ### Default Preferences
 $gBitInstaller->registerPreferences( LANGUAGES_PKG_NAME, array(
@@ -121,11 +134,4 @@ $gBitInstaller->registerSchemaDefault( LANGUAGES_PKG_NAME, array(
 	"INSERT INTO `".BIT_DB_PREFIX."i18n_languages` (`lang_code`,`native_name`,`english_name`) VALUES ('zh-cn', '简体中文', 'Chinese')",
 ) );
 
-// Package requirements
-$gBitInstaller->registerRequirements( LANGUAGES_PKG_NAME, array(
-	'liberty'   => array( 'min' => '2.1.4' ),
-	'users'     => array( 'min' => '2.1.0' ),
-	'kernel'    => array( 'min' => '2.0.0' ),
-	'themes'    => array( 'min' => '2.0.0' ),
-));
-?>
+}
