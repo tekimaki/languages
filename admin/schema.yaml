@@ -268,3 +268,17 @@ languages:
       (`lang_code`,`native_name`,`english_name`)
       VALUES ('zh-cn', '简体中文',
       'Chinese')
+  plugins:
+    translation:
+      handler_file: LibertyTranslations.php
+      description: Facilitates content translation 
+      required: false
+      api_handlers:
+        function:
+          content_display_function: translation_content_display
+          content_edit_function: translation_content_edit
+          content_store_function: translation_content_store
+          content_expunge_function: translation_content_exunge
+        tpl:
+          content_edit_mini_tpl: 'bitpackage:languages/select_translations.tpl'
+          content_icon_tpl: 'bitpackage:languages/i18n_service_icons.tpl'

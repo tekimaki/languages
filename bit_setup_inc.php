@@ -1,5 +1,7 @@
 <?php
 
+define( 'LIBERTY_SERVICE_TRANSLATION', 'translation' );
+
 $registerHash = array(
 	'package_name' => 'languages',
 	'package_path' => dirname( __FILE__ ).'/',
@@ -43,6 +45,7 @@ if( !empty( $_REQUEST['oe'] ) && !empty( $gBitLanguage->mLanguageList[$_REQUEST[
 $gBitSmarty->assign('bitlanguage', $gBitLanguage->mLanguage);
 
 if( !empty( $gLibertySystem ) && $gBitSystem->isFeatureActive( 'i18n_content_translation' ) ) {
+	/*
 	require_once( LANGUAGES_PKG_PATH . 'LibertyTranslations.php' );
 	$gLibertySystem->registerService( LIBERTY_SERVICE_TRANSLATION, LANGUAGES_PKG_NAME, array(
 		'content_display_function' => 'translation_content_display',
@@ -55,6 +58,7 @@ if( !empty( $gLibertySystem ) && $gBitSystem->isFeatureActive( 'i18n_content_tra
 		'content_edit_mini_tpl' => 'bitpackage:languages/select_translations.tpl',
 		'content_icon_tpl' => 'bitpackage:languages/i18n_service_icons.tpl',
 	) );
+	 */
 
 	if( !empty( $_POST['i18n']['translate'] ) ) {
 		if( @BitBase::verifyId( $_POST['i18n']['to_id'] ) ) {
