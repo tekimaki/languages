@@ -41,7 +41,7 @@
 										{formhelp note="Disabling a language will remove it from available language menus."}
 									{/forminput}
 								</div>
-								<div class="row submit">
+								<div class="buttonHolder row submit">
 									<input type="submit" name="save_language" value="{tr}Save Language{/tr}" />
 								</div>
 								{formhelp note="A note for localisations: when you have a language, say 'de' and you add a localisation such as 'de-at' it will first check de-at for a string and then fall back to de. If it still hasn't found a translation, it will default to english."}
@@ -86,7 +86,7 @@
 
 						{formfeedback warning="Editing a language for the first time will cause an import of the language. this can take several minutes, depending on your configuration."}
 
-						<div class="row submit">
+						<div class="buttonHolder row submit">
 							<input type="submit" name="delete_language" value="{tr}Delete Language{/tr}" />&nbsp;
 							<input type="submit" name="edit_language" value="{tr}Edit Description{/tr}" />&nbsp;
 							<input type="submit" name="translate" value="{tr}Edit Translations{/tr}" />
@@ -104,7 +104,7 @@
 						"}
 
 						{if $gBitUser->hasPermission( 'p_languages_create' )}
-							<div class="row submit">
+							<div class="buttonHolder row submit">
 								<input type="submit" name="new_language" value="{tr}Create New Language{/tr}" />
 							</div>
 						{/if}
@@ -168,7 +168,7 @@
 							{/if}
 						{/foreach}
 
-						<div class="row submit">
+						<div class="buttonHolder row submit">
 							<input type="submit" name="cancel" value="{tr}Cancel{/tr}" />&nbsp;
 							<input type="submit" name="save_translations" value="{tr}Save{/tr}" />
 						</div>

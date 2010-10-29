@@ -37,7 +37,7 @@
 				{/foreach}
 			{/foreach}
 
-			<div class="row submit">
+			<div class="buttonHolder row submit">
 				<input type="submit" name="resolve" value="{tr}Import{/tr}" />
 			</div>
 		{/form}

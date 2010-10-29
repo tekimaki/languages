@@ -15,7 +15,7 @@
 			{/foreach}
 		</select>
 		<noscript>
-			<div class="row submit">
+			<div class="buttonHolder row submit">
 				<input type="submit" value="{tr}Translate{/tr}" />
 			</div>
 		</noscript>

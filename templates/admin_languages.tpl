@@ -23,7 +23,7 @@
 		</div>
 	{/foreach}
 
-	<div class="row submit">
+	<div class="buttonHolder row submit">
 		<input type="submit" name="prefs" value="{tr}Change Settings{/tr}" />
 	</div>
 {/form}

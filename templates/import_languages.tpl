@@ -58,7 +58,7 @@
 						{/forminput}
 					</div>
 
-					<div class="row submit">
+					<div class="buttonHolder row submit">
 						<input type="submit" name="import" value="{tr}Import{/tr}" />
 					</div>
 				{/form}
@@ -109,7 +109,7 @@
 							{/forminput}
 						</div>
 
-						<div class="row submit">
+						<div class="buttonHolder row submit">
 							<input type="submit" name="export" value="{tr}Export{/tr}" />
 						</div>
 					{/form}

@@ -22,7 +22,7 @@
 						{/forminput}
 					</div>
 {*
-					<div class="row submit">
+					<div class="buttonHolder row submit">
 						<input type="submit" name="delete_master" value="{tr}Delete Master{/tr}" />
 						&nbsp;<input type="submit" name="change_master" value="{tr}Save{/tr}" />
 					</div>
@@ -45,7 +45,7 @@
 					{/foreach}
 				{/foreach}
 
-				<div class="row submit">
+				<div class="buttonHolder row submit">
 					<input type="submit" name="cancel" value="{tr}Cancel{/tr}" />
 					&nbsp;<input type="submit" name="guess_translations" value="{tr}Guess Translations{/tr}" />
 					&nbsp;<input type="submit" name="save_translations" value="{tr}Save{/tr}" />
