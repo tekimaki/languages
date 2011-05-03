@@ -102,34 +102,8 @@ if( !empty( $_REQUEST['clear_cache'] ) ) {
 		$gBitSmarty->assign_by_ref( 'defaults', $languages[$_REQUEST['lang']] );
 	}
 	$gBitSmarty->assign( 'editDescription', TRUE );
-} elseif( !empty( $_REQUEST['save_translations'] ) ) {
-	$editLang = $_REQUEST['lang'];
-	$gBitLanguage->loadLanguage( $editLang );
-	$storedStrings = NULL;
-	foreach( $_REQUEST['edit_trans'] as $sourceHash => $string ) {
-		if( $string != $gBitLanguage->mStrings[$editLang][$sourceHash]['trans'] ) {
-			// we need to remove the $_REQUEST slashes here to avoid stuff like: 
-			// {$gBitSystem->getConfig(\'stuff\')} in the translated strings - 
-			// it will kill the site since smarty won't be able to interpret 
-			// the template anymore --xing
-			if( ini_get( 'magic_quotes_gpc' ) ) {
-				$string = stripslashes( $string );
-			}
-			$gBitLanguage->storeTranslationString( $editLang, $string, $sourceHash );
-			// update string in template as well
-			$tranStrings[$sourceHash]['trans'] = $string;
-			// this has to be the source, otherwise the translated string will enter the db and be recognised as a used master
-			$storedStrings[] = $gBitLanguage->mStrings[$editLang][$sourceHash]['source'];
-		}
-	}
-	$tranStrings = $gBitLanguage->getTranslationString( $sourceHash, $editLang );
-	$gBitSmarty->assign_by_ref('tranStrings', $tranStrings );
-	$gBitSmarty->assign( 'lang', $editLang );
-	$gBitSmarty->assign( 'translate', TRUE );
-	$gBitSmarty->assign( 'saveSuccess', tra( "The following items have been saved successfully" ).":" );
-	$gBitSmarty->assign( 'storedStrings', $storedStrings );
 }
 
-$gBitSystem->display( 'bitpackage:languages/edit_languages.tpl', tra( 'Edit Translations' ) , array( 'display_mode' => 'edit' ));
+$gBitSystem->display( 'bitpackage:languages/edit_languages.tpl', tra( 'Edit Languages' ) , array( 'display_mode' => 'edit' ));
 
 ?>
